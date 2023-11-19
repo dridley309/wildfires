@@ -4,7 +4,9 @@ Wildfires
 Requirements
 ------------
 PHP 8.1+
+  
 Composer
+
 The following PHP extensions;
 * calendar
 * PDO
@@ -29,6 +31,8 @@ Run the database migrations using (this will take quite a while);
 php bin/console doctrine:migrations:migrate
 ```
 
+Enter "yes" if prompted with a warning related to migration execution in database "main"
+
 Usage
 -----
 Open a terminal session
@@ -37,8 +41,7 @@ Navigate into public folder within the project directory
 
 Run the local dev server using;
 ```
-php -S 127.0.0.1:8000"
+php -S 127.0.0.1:8000
 ```
 
 Visit the specified address with your browser
-  
