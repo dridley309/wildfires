@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fires{% endblock %}
+
+{% block body %}
+<section class="container">
+    <h1>{{ forestName }}</h1>
+
+    <div class="fire-list">
+        <ul>
+            {% for fire in fires %}
+                <li>
+                    {% include 'partials/_fire.html.twig' with {fire: fire} only %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page - 1}) }}">
+                Previous
+            </a>
+        {% endif %}
+
+        <p>Page {{ page }}</p>
+
+        <a href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page + 1}) }}">
+            Next
+        </a>
+    </div>
+</section>
+{% endblock %}
