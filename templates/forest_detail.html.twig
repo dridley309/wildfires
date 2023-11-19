@@ -6,28 +6,28 @@
 <section class="container">
     <h1>{{ forestName }}</h1>
 
-    <div class="fire-list">
-        <ul>
+    <div class="fires">
             {% for fire in fires %}
-                <li>
+                <div class="fire">
                     {% include 'partials/_fire.html.twig' with {fire: fire} only %}
-                </li>
+                </div>
             {% endfor %}
-        </ul>
     </div>
 
     <div class="pagination">
         {% if page > 1 %}
-            <a href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page - 1}) }}">
+            <a class="page-link" href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page - 1}) }}">
                 Previous
             </a>
         {% endif %}
 
         <p>Page {{ page }}</p>
 
-        <a href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page + 1}) }}">
-            Next
-        </a>
+        {% if fires is not empty %}
+            <a class="page-link" href="{{ path('forest_detail', {forestName: forestName|url_encode_with_forward_slash, page: page + 1}) }}">
+                Next
+            </a>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

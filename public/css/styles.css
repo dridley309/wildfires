@@ -2,3 +2,19 @@
     font-size: 100%;
     font-family: Helvetica;
 }
+
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px; 
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    margin: 0 10px;
+}
